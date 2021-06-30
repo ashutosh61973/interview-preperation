@@ -127,13 +127,41 @@ int f(int i, int j, int n, int m, vector<int> &a, vector<int> &b)
         return max(f(i + 1, j, n, m, a, b), f(i, j + 1, n, m, a, b));
     }
     return dp[i][j] = 1 + f(i + 1, j + 1, n, m, a, b);
+    //time complexity  o(n*m)
+    //space complexity o(n*m)
 }
 
 void solve(vector<int> &a, vector<int> &b, int n, int m)
 {
-    int commmon_length = f(0, 0, n, m, a, b);
+    int commmon_length;
+    //  int commmon_length= f(0, 0, n, m, a, b);
+    int curr_row;
+    vector<vector<int>> lcs(2, vector<int>(m + 10));
+    for (int i = 0; i <= n; i++)
+    {
+        curr_row = i & 1;
+        for (int j = 0; j <= m; j++)
+        {
+            if (i == 0 or j == 0)
+            {
+                lcs[curr_row][j] = 0;
+            }
+            else if (a[i - 1] == b[j - 1])
+            {
+                lcs[curr_row][j] = 1 + lcs[1 - curr_row][j - 1];
+            }
+            else
+            {
+                lcs[curr_row][j] = max(lcs[1 - curr_row][j], lcs[curr_row][j - 1]);
+            }
+        }
+        commmon_length = lcs[curr_row][m];
+    }
+    // cout << commmon_length << endl;
     int ans = n - commmon_length;
     cout << ans << endl;
+    // space o(2*m)
+    // time o(n*m)
 }
 
 int main()
