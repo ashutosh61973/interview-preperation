@@ -109,7 +109,7 @@ sort(v.begin(), v.end(), [&] (const string &s, const string &t) {
 */
 
 ///////////////////////////////////////////////////////////////////////
-const int N = (int)1e3 + 10;
+const int N = (int)1e3 + 16;
 vector<vector<int>> dp(N, vector<int>(N, -1));
 
 int f(int i, int j, int n, int m, vector<int> &a, vector<int> &b)
