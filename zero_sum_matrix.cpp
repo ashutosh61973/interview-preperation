@@ -187,4 +187,6 @@ int main()
     }
     int cnt = zeroSumSubMatrices(mat, n, m);
     cout << cnt << endl;
+    // take all pair wise rows and think like a 1d target sum problem
+    //
 }
