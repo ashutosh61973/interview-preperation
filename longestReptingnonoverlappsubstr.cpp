@@ -48,5 +48,4 @@ int main()
     {
         cout << s[i];
     }
-    cout << endl;
 }
