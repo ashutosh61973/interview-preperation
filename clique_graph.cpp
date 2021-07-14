@@ -3,10 +3,6 @@
 using namespace std;
 #define inti long long
 #define ll long long
-const long long INF = 1e18;
-const int32_t M = 1e9 + 7;
-const int32_t mod = 1e9 + 7;
-const int32_t MM = 998244353;
 
 bool check_bipartite(vector<vector<int>> &g, int n)
 {
@@ -36,17 +32,7 @@ bool check_bipartite(vector<vector<int>> &g, int n)
 }
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    // memset(prime, true, sizeof(prime));
-    //primes(); // primes under 1lakh
 
-    /*
-  #ifdef NCR
-        init();
-    #endif
-*/
     int n;
     int e;
     cin >> n >> e;
@@ -77,15 +63,7 @@ int main()
             }
         }
     }
-    // for (int i = 0; i < n; i++)
-    // {
-    //     cout << i << "->";
-    //     for (auto x : cgraph[i])
-    //     {
-    //         cout << x << " ";
-    //     }
-    //     cout << endl;
-    // }
+
     if (check_bipartite(cgraph, n))
     {
         cout << "YES" << endl;
